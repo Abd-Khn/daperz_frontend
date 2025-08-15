@@ -8,10 +8,25 @@ const CalendlyWidget = ({ calendlyUrl }) => {
   const widgetRef = useRef(null);
 
   useEffect(() => {
+    // Early return if calendlyUrl is null or undefined
+    if (!calendlyUrl || typeof calendlyUrl !== 'string') {
+      console.error('Calendly URL is required and must be a valid string');
+      setHasError(true);
+      setIsLoading(false);
+      return;
+    }
     // Load Calendly widget script
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
+    
+    // Add error handling for script loading
+    script.onerror = () => {
+      console.error('Failed to load Calendly widget script');
+      setHasError(true);
+      setIsLoading(false);
+    };
+    
     document.body.appendChild(script);
 
     // Check if Calendly script is loaded
@@ -26,7 +41,7 @@ const CalendlyWidget = ({ calendlyUrl }) => {
 
     const initializeWidget = () => {
       try {
-        if (typeof window.Calendly !== 'undefined' && widgetRef.current) {
+        if (typeof window.Calendly !== 'undefined' && widgetRef.current && calendlyUrl) {
           // Build URL with customization parameters
           const urlParams = new URLSearchParams();
           
@@ -51,6 +66,17 @@ const CalendlyWidget = ({ calendlyUrl }) => {
           }
           if (CALENDLY_CONFIG.WIDGET_OPTIONS.textColor) {
             urlParams.append('text_color', CALENDLY_CONFIG.WIDGET_OPTIONS.textColor);
+          }
+          
+          // Validate URL format before constructing final URL
+          let validatedUrl;
+          try {
+            validatedUrl = new URL(calendlyUrl);
+          } catch (urlError) {
+            console.error('Invalid Calendly URL format:', calendlyUrl, urlError);
+            setHasError(true);
+            setIsLoading(false);
+            return;
           }
           
           // Construct the final URL with parameters
@@ -94,8 +120,8 @@ const CalendlyWidget = ({ calendlyUrl }) => {
     return () => {
       // Cleanup script on component unmount
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript) {
-        document.body.removeChild(existingScript);
+      if (existingScript && existingScript.parentNode) {
+        existingScript.parentNode.removeChild(existingScript);
       }
     };
   }, [calendlyUrl]);
