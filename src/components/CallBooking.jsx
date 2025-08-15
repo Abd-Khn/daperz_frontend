@@ -30,6 +30,16 @@ const CalendlyWidget = ({ calendlyUrl }) => {
           // Build URL with customization parameters
           const urlParams = new URLSearchParams();
           
+          // Calendly requires explicit embed context on some hosts (prevents split(null) errors)
+          try {
+            const hostname = (typeof window !== 'undefined' && window.location && window.location.hostname) ? window.location.hostname : 'localhost';
+            urlParams.append('embed_domain', hostname);
+            urlParams.append('embed_type', 'Inline');
+          } catch {
+            urlParams.append('embed_domain', 'localhost');
+            urlParams.append('embed_type', 'Inline');
+          }
+          
           // Add customization options as URL parameters
           if (CALENDLY_CONFIG.WIDGET_OPTIONS.hideEventTypeDetails) {
             urlParams.append('hide_event_type_details', '1');
