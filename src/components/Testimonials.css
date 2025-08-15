@@ -182,3 +182,15 @@
     min-height: auto;
   }
 }
+
+@media (max-width: 480px) {
+  .testimonials-label { font-size: 12px; letter-spacing: 0; }
+  .testimonials-title { font-size: 28px; letter-spacing: 0; }
+  .testimonial-text, .testimonial-closing, .author-name { font-size: 14px; letter-spacing: 0; }
+  .author-title { font-size: 12px; letter-spacing: 0; }
+}
+
+@media (max-width: 360px) {
+  .testimonials-title { font-size: 26px; letter-spacing: 0; }
+  .testimonial-text, .testimonial-closing, .author-name { font-size: 13px; letter-spacing: 0; }
+}

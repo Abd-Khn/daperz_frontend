@@ -365,14 +365,56 @@
   .heroSection-headline {
     font-size: 2rem;
     line-height: 2.2rem;
+    letter-spacing: 0;
   }
   
   .heroSection-feature {
     font-size: 1rem;
+    letter-spacing: 0;
   }
   
   .mockup-2 {
     width: 280px;
     height: 420px;
+  }
+  .heroSection-ratingText { letter-spacing: 0; }
+  .heroSection-primaryCta,
+  .heroSection-secondaryCta { letter-spacing: 0; }
+}
+
+@media (max-width: 480px) {
+  .heroSection-ratingText {
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .heroSection-feature {
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+  }
+  .heroSection-primaryCta,
+  .heroSection-secondaryCta {
+    font-size: 14px;
+    line-height: 18px;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .heroSection-headline {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    letter-spacing: 0;
+  }
+  .heroSection-feature {
+    font-size: 0.85rem;
+    line-height: 1rem;
+    letter-spacing: 0;
+  }
+  .heroSection-primaryCta,
+  .heroSection-secondaryCta {
+    font-size: 13px;
+    line-height: 16px;
+    padding: 10px 16px;
+    letter-spacing: 0;
   }
 }

@@ -120,3 +120,16 @@
     height: auto !important;
   }
 }
+
+@media (max-width: 480px) {
+  .hiw-eyebrow { font-size: 14px; line-height: 18px; letter-spacing: 0; }
+  .hiw-title { font-size: 36px; line-height: 44px; letter-spacing: 0; }
+  .hiw-card-title { font-size: 22px; line-height: 28px; letter-spacing: 0; }
+  .hiw-card-desc { font-size: 14px; line-height: 18px; letter-spacing: 0; }
+}
+
+@media (max-width: 360px) {
+  .hiw-title { font-size: 32px; line-height: 38px; letter-spacing: 0; }
+  .hiw-card-title { font-size: 20px; line-height: 24px; letter-spacing: 0; }
+  .hiw-card-desc { font-size: 13px; line-height: 18px; letter-spacing: 0; }
+}

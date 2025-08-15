@@ -110,4 +110,33 @@
   }
 }
 
+@media (max-width: 480px) {
+  .services-title {
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: 0;
+  }
+  .services-eyebrow {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0;
+  }
+  .service-label {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .services-title {
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .service-label {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
 

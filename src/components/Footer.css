@@ -208,3 +208,23 @@
     height: 40px;
   }
 }
+
+@media (max-width: 480px) {
+  .footer-description,
+  .footer-link,
+  .footer-contact-item {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer-description,
+  .footer-link,
+  .footer-contact-item {
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0;
+  }
+}

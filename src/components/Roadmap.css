@@ -190,15 +190,41 @@
   
   .roadmap-title {
     font-size: 28px;
+    letter-spacing: 0;
   }
   
   .roadmap-subtitle {
     font-size: 36px;
     line-height: 40px;
+    letter-spacing: 0;
+  }
+  .sprint-title {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0;
+  }
+  .sprint-subtitle,
+  .feature-text {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0;
+  }
+  .sprint-badge {
+    width: 56px;
+    height: 58px;
+    font-size: 28px;
   }
   
   .sprint-card {
     width: 100%;
     max-width: 380px;
   }
+}
+
+@media (max-width: 360px) {
+  .roadmap-title { font-size: 26px; }
+  .roadmap-subtitle { font-size: 32px; line-height: 36px; }
+  .sprint-title { font-size: 22px; line-height: 26px; letter-spacing: 0; }
+  .sprint-subtitle, .feature-text { font-size: 13px; line-height: 16px; letter-spacing: 0; }
+  .sprint-badge { width: 50px; height: 52px; font-size: 24px; }
 }
