@@ -125,7 +125,6 @@ const CalendlyWidget = ({ calendlyUrl }) => {
           className="calendly-inline-widget"
           style={{
             minWidth: '320px',
-            height: '500px',
             background: 'transparent'
           }}
         />
@@ -189,7 +188,7 @@ const CallBooking = () => {
         <div className="calendar-section">
           <h3 className="calendar-title">Select date & time</h3>
           
-          {/* Calendly Widget */}
+          {/* Calendly Widget - ensure full height and no internal scroll */}
           <CalendlyWidget calendlyUrl={CALENDLY_CONFIG.MEETING_SCHEDULER_URL} />
         </div>
       </div>

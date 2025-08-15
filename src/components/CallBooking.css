@@ -295,13 +295,15 @@
 .calendly-inline-widget {
   font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif !important;
   width: 100%;
-  height: 100%;
+  height: 720px;
   border: none;
 }
 
 /* Override Calendly default styles */
 .calendly-inline-widget iframe {
   border: none !important;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 /* Calendly Widget Styles */
@@ -491,7 +493,7 @@
   }
   
   .calendly-inline-widget {
-    height: 400px !important;
+    height: 615px !important;
   }
 }
 
@@ -519,4 +521,5 @@
     line-height: 18px;
     letter-spacing: 0;
   }
+  .calendly-inline-widget { height: 1100px !important; }
 }
