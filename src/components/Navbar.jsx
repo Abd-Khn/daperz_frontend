@@ -4,6 +4,13 @@ import './Navbar.css';
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToCalendly = () => {
+    const calendlySection = document.getElementById('call-booking');
+    if (calendlySection) {
+      calendlySection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-container">
@@ -11,7 +18,7 @@ function Navbar() {
           <img src="/Images/logo.svg" alt="logo" />
         </div>
         <div className="nav-actions">
-          <button className="collaborate-btn">Let's Collaborate →</button>
+          <button className="collaborate-btn" onClick={scrollToCalendly}>Let's Collaborate →</button>
           <button
             className="menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -27,7 +34,7 @@ function Navbar() {
           <a className="mobile-menu-link" href="#pricing" role="menuitem" onClick={() => setIsMenuOpen(false)}>Pricing</a>
           <a className="mobile-menu-link" href="#testimonials" role="menuitem" onClick={() => setIsMenuOpen(false)}>Testimonials</a>
           <a className="mobile-menu-link" href="#faq" role="menuitem" onClick={() => setIsMenuOpen(false)}>FAQ</a>
-          <a className="mobile-menu-cta" href="#call-booking" role="menuitem" onClick={() => setIsMenuOpen(false)}>Let's Collaborate →</a>
+          <a className="mobile-menu-cta" href="#call-booking" role="menuitem" onClick={() => { setIsMenuOpen(false); scrollToCalendly(); }}>Let's Collaborate →</a>
         </div>
       )}
     </nav>

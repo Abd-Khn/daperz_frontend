@@ -264,7 +264,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding-top: 54px;
 }
 
@@ -275,7 +275,8 @@
   font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
   font-size: 24px;
   font-weight: 600;
-  margin: 0 0 52px 1px;
+  margin: 0 0 52px 0;
+  text-align: center;
 }
 
 /* Calendly Container - Clean styling matching Figma Group 1321317760 */

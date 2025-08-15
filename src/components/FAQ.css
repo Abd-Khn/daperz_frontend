@@ -110,8 +110,18 @@
 }
 
 .faq-answer-container {
-  padding: 0 16px 16px;
+  padding: 0 16px 0;
   border-top: none;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.faq-card.expanded .faq-answer-container {
+  max-height: 200px;
+  opacity: 1;
+  padding: 0 16px 16px;
 }
 
 .faq-answer {

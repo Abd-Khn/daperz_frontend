@@ -38,45 +38,7 @@ const CallBooking = () => {
       {/* Two Column Layout */}
       <div className="call-booking-content">
         {/* Left Side - Profile Section */}
-        <div className="profile-section">
-          <div className="profile-card">
-            <div className="daperz-logo">
-              <span className="logo-text">Daperz</span>
-            </div>
-            
-            <div className="profile-info">
-              <div className="profile-image">
-                <img
-                  src="/Images/ceo.svg"
-                  alt="Alex Suprun"
-                  className="profile-avatar"
-                />
-              </div>
-              <div className="profile-details">
-                <p className="profile-role">Founder & Head of IT</p>
-                <p className="profile-name">Alex Suprun</p>
-              </div>
-              
-            </div>
-
-            <div className="booking-step">
-              <div className="step-indicator">
-                <div className="step-dot"></div>
-                <p className="step-title">Schritt 1</p>
-              </div>
-              <p className="step-description">
-                Es ist kein Wunder, dass es nicht mehr geht.
-              </p>
-            </div>
-            <img
-                src="/Images/detail.svg"
-                alt="Detail"
-                className="profile-detail-image"
-              />
-
-
-          </div>
-        </div>
+       
 
         {/* Right Side - Calendar Section */}
         <div className="calendar-section">

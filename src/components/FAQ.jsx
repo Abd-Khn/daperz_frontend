@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './FAQ.css';
 
 const FAQ = () => {
-  const [expandedItems, setExpandedItems] = useState({});
+  const [expandedItems, setExpandedItems] = useState({ 1: true });
 
   const faqData = [
     {
@@ -34,7 +34,6 @@ const FAQ = () => {
 
   const toggleExpanded = (id) => {
     setExpandedItems(prev => ({
-      ...prev,
       [id]: !prev[id]
     }));
   };
@@ -63,11 +62,9 @@ const FAQ = () => {
                   className={`faq-arrow ${expandedItems[item.id] ? 'rotated' : ''}`}
                 />
               </div>
-              {expandedItems[item.id] && (
-                <div className="faq-answer-container">
-                  <p className="faq-answer">{item.answer}</p>
-                </div>
-              )}
+              <div className="faq-answer-container">
+                <p className="faq-answer">{item.answer}</p>
+              </div>
             </div>
           ))}
         </div>

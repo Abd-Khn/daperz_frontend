@@ -1,6 +1,20 @@
 import "./HeroSection.css";
 
 function HeroSection() {
+  const scrollToCallBooking = () => {
+    const callBookingSection = document.getElementById('call-booking');
+    if (callBookingSection) {
+      callBookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToCaseStudies = () => {
+    const caseStudiesSection = document.getElementById('case-studies');
+    if (caseStudiesSection) {
+      caseStudiesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="heroSection-section">
       <div className="heroSection-content">
@@ -36,11 +50,11 @@ function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="heroSection-ctaButtons">
-            <button className="heroSection-primaryCta">
+            <button className="heroSection-primaryCta" onClick={scrollToCallBooking}>
               <img src="/Images/Hero/boost.svg" alt="play" />
               Start Designing with Daperz
             </button>
-            <button className="heroSection-secondaryCta">Recent Work</button>
+            <button className="heroSection-secondaryCta" onClick={scrollToCaseStudies}>Recent Work</button>
           </div>
         </div>
 
