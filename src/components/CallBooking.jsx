@@ -8,64 +8,52 @@ const CalendlyWidget = ({ calendlyUrl }) => {
   const widgetRef = useRef(null);
 
   useEffect(() => {
-    // Load Calendly widget script
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Check if Calendly script is loaded
-    const checkCalendlyLoaded = () => {
-      if (typeof window.Calendly !== 'undefined') {
-        initializeWidget();
-      } else {
-        // Wait for Calendly to load
-        setTimeout(checkCalendlyLoaded, 100);
-      }
-    };
+    // Load Calendly widget script (only once) and initialize on load
+    const existingScript = document.querySelector('script[data-calendly-script="inline-widget"]');
+    let script;
 
     const initializeWidget = () => {
       try {
         if (typeof window.Calendly !== 'undefined' && widgetRef.current) {
-          // Build URL with customization parameters
-          const urlParams = new URLSearchParams();
+          // Build URL with customization parameters (via URL API for safety)
+          const finalUrlObj = new URL(calendlyUrl);
+          const urlParams = finalUrlObj.searchParams;
           
           // Calendly requires explicit embed context on some hosts (prevents split(null) errors)
           try {
             const hostname = (typeof window !== 'undefined' && window.location && window.location.hostname) ? window.location.hostname : 'localhost';
-            urlParams.append('embed_domain', hostname);
-            urlParams.append('embed_type', 'Inline');
+            urlParams.set('embed_domain', hostname);
+            urlParams.set('embed_type', 'Inline');
           } catch {
-            urlParams.append('embed_domain', 'localhost');
-            urlParams.append('embed_type', 'Inline');
+            urlParams.set('embed_domain', 'localhost');
+            urlParams.set('embed_type', 'Inline');
           }
           
           // Add customization options as URL parameters
           if (CALENDLY_CONFIG.WIDGET_OPTIONS.hideEventTypeDetails) {
-            urlParams.append('hide_event_type_details', '1');
+            urlParams.set('hide_event_type_details', '1');
           }
           if (CALENDLY_CONFIG.WIDGET_OPTIONS.hideLandingPageDetails) {
-            urlParams.append('hide_landing_page_details', '1');
+            urlParams.set('hide_landing_page_details', '1');
           }
           if (CALENDLY_CONFIG.WIDGET_OPTIONS.hideGdprBanner) {
-            urlParams.append('hide_gdpr_banner', '1');
+            urlParams.set('hide_gdpr_banner', '1');
           }
           if (CALENDLY_CONFIG.WIDGET_OPTIONS.hideCookieBanner) {
-            urlParams.append('hide_gdpr_banner', '1'); // Same parameter for cookie banner
+            urlParams.set('hide_gdpr_banner', '1'); // Same parameter for cookie banner
           }
           if (CALENDLY_CONFIG.WIDGET_OPTIONS.primaryColor) {
-            urlParams.append('primary_color', CALENDLY_CONFIG.WIDGET_OPTIONS.primaryColor);
+            urlParams.set('primary_color', CALENDLY_CONFIG.WIDGET_OPTIONS.primaryColor);
           }
           if (CALENDLY_CONFIG.WIDGET_OPTIONS.backgroundColor) {
-            urlParams.append('background_color', CALENDLY_CONFIG.WIDGET_OPTIONS.backgroundColor);
+            urlParams.set('background_color', CALENDLY_CONFIG.WIDGET_OPTIONS.backgroundColor);
           }
           if (CALENDLY_CONFIG.WIDGET_OPTIONS.textColor) {
-            urlParams.append('text_color', CALENDLY_CONFIG.WIDGET_OPTIONS.textColor);
+            urlParams.set('text_color', CALENDLY_CONFIG.WIDGET_OPTIONS.textColor);
           }
           
           // Construct the final URL with parameters
-          const finalUrl = urlParams.toString() ? 
-            `${calendlyUrl}?${urlParams.toString()}` : calendlyUrl;
+          const finalUrl = finalUrlObj.toString();
           
           window.Calendly.initInlineWidget({
             url: finalUrl,
@@ -99,13 +87,25 @@ const CalendlyWidget = ({ calendlyUrl }) => {
       }
     };
 
-    checkCalendlyLoaded();
+    if (typeof window.Calendly !== 'undefined') {
+      initializeWidget();
+    } else if (existingScript) {
+      existingScript.addEventListener('load', initializeWidget, { once: true });
+    } else {
+      script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      script.defer = true;
+      script.setAttribute('data-calendly-script', 'inline-widget');
+      script.addEventListener('load', initializeWidget, { once: true });
+      document.body.appendChild(script);
+    }
 
     return () => {
-      // Cleanup script on component unmount
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript) {
-        document.body.removeChild(existingScript);
+      // Remove onload handler if we attached one
+      const cleanupScript = document.querySelector('script[data-calendly-script="inline-widget"]');
+      if (cleanupScript) {
+        cleanupScript.removeEventListener('load', initializeWidget);
       }
     };
   }, [calendlyUrl]);
