@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.fRame2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 28px;
+  width: 1366px;
+  height: 75px;
+  overflow: hidden;
+
+  .fRame {
+    background: #0000001a;
+    width: 1366px;
+    height: 1px;
+  }
+
+  .labels {
+    margin: 27px 0px 0px;
+    line-height: 19px;
+    letter-spacing: 0;
+    color: #121212;
+    font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+  }
+}

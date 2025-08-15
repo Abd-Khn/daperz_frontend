@@ -1,0 +1,204 @@
+/* Roadmap Section Styles */
+.roadmap {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.roadmap-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.roadmap-title {
+  font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: 0;
+  color: #121212;
+  margin: 0 0 15px 0;
+}
+
+.roadmap-subtitle {
+  font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 66px;
+  letter-spacing: -1.92px;
+  color: #121212;
+  margin: 0;
+  max-width: 873px;
+  text-align: center;
+}
+
+/* Sprint Cards Container */
+.sprint-cards-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1300px;
+}
+
+/* Individual Sprint Card */
+.sprint-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #d6d6d6;
+  width: 405px;
+  height: 467px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sprint Badge (Yellow Number) */
+.sprint-badge {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background: #fdd90b;
+  width: 76px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 22px;
+  letter-spacing: 0;
+}
+
+/* Sprint Content */
+.sprint-content {
+  padding: 47px 42px 42px 42px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sprint-title {
+  font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: -1.28px;
+  color: #121212;
+  margin: 0 0 30px 0;
+  width: 143px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+.sprint-subtitle {
+  font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: -0.18px;
+  color: #121212;
+  margin: 0 0 34px 0;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+/* Features List */
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  opacity: 0.64;
+  flex-grow: 1;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  width: fit-content;
+}
+
+.check-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  padding: 3px;
+}
+
+.feature-text {
+  font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0;
+  color: #121212;
+  flex-grow: 1;
+}
+
+/* Ensure 3 cards per row on wide screens */
+@media (min-width: 1440px) {
+  .roadmap {
+    max-width: 1300px;
+  }
+
+  .sprint-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sprint-card {
+    width: auto;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1300px) {
+  .sprint-cards-container {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .sprint-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .roadmap-subtitle {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roadmap {
+    padding: 60px 15px;
+  }
+  
+  .roadmap-title {
+    font-size: 28px;
+  }
+  
+  .roadmap-subtitle {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  
+  .sprint-card {
+    width: 100%;
+    max-width: 380px;
+  }
+}

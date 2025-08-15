@@ -1,0 +1,136 @@
+/* Navigation Bar Styles */
+.navbar {
+  background-color: #1C1C1C;
+  padding: 18px 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  margin-top: 16px;
+}
+
+.nav-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.collaborate-btn {
+  background-color: #FFE100;
+  border-radius: 4px;
+  color: #242424;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.collaborate-btn:hover {
+  background-color: #f59e0b;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0.5rem;
+}
+
+.menu-btn span {
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.2s;
+}
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #1C1C1C;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 12px 16px 16px;
+  margin-top: 12px;
+  border-radius: 0 0 4px 4px;
+}
+
+.mobile-menu-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: var(--font-display);
+  opacity: 0.9;
+}
+
+.mobile-menu-cta {
+display: none;
+}
+
+/* Responsive Design for Navbar */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  .collaborate-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    display: none;
+  }
+  .mobile-menu-cta {
+    background-color: #FFE100;
+    color: #242424;
+    border: none;
+    padding: 12px 16px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    display: block;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .nav-logo img {
+    height: 28px;
+  }
+  
+  .collaborate-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}

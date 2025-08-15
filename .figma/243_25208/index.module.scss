@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+.frame2147229284 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 725px;
+  height: 183px;
+  row-gap: 24px;
+
+  .callBooking {
+    flex-shrink: 0;
+    align-self: stretch;
+    text-align: center;
+    line-height: 38px;
+    letter-spacing: 0;
+    color: #121212;
+    font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 32px;
+  }
+
+  .frame2147229092 {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: center;
+    align-self: stretch;
+    row-gap: 15px;
+
+    .inRecordTimeHeading2 {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      width: 801px;
+      height: 120px;
+      line-height: 66px;
+      letter-spacing: 0;
+      color: #121212;
+      font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 70px;
+      font-weight: 600;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+.frame2147229109 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 472px;
+  height: 218px;
+  row-gap: 20px;
+
+  .frequentlyAskedQuest {
+    flex-shrink: 0;
+    align-self: stretch;
+    width: 472px;
+    height: 93px;
+    line-height: 48px;
+    letter-spacing: 0;
+    color: #fdd90b;
+    font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 52px;
+    font-weight: 600;
+  }
+
+  .weKnowSpeedMattersBu {
+    flex-shrink: 0;
+    align-self: stretch;
+    width: 472px;
+    height: 105px;
+    line-height: 21px;
+    letter-spacing: 0;
+    color: #ffffff;
+    font-family: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+  }
+}
